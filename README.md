@@ -1,8 +1,10 @@
-Docker - Ubuntu with SSHD
+Ubuntu LTS with SSH (Docker)
 =========
 
-A Docker file to build a [docker.io] base container with Ubuntu and a sshd service.
+A Docker file to build a [docker.io] base container with Ubuntu LTS and a sshd service.
 [docker.io]: http://docker.io
+Nice and easy way to get any server up and running using docker.
+
 
 Instructions
 -----------
@@ -10,14 +12,20 @@ Instructions
  - Pull the repository
    `git clone https://github.com/art567/docker-ubuntu-sshd.git`
  - Build the container
-   `sudo docker build -t yourname/sshd .`
+   `sudo docker build -t art567/ubuntu .`
  - Run the container
-   `SSHD_ID=$(sudo docker run -d -p 22 yourname/sshd -D)`
- - Find the public facing port NAT-ed to the private exposed port 22
-   `SSHD_PORT=$(sudo docker port $SSHD_ID 22)`
+   `sudo docker run -d=true -p=2222:22 -v=/opt/data:/data art567/ubuntu /start`
+ - Your container will start and bind ssh to 2222 port.
  - Find IP Address using `ifconfig`
  - Connect to the SSH server
-   `ssh root@<ip-address> -p $SSHD_PORT`
+   `ssh root@<ip-address> -p 2222`
+ - If you don't want to deal with root:
+   `ssh master@<ip-address> -p 2222`
+
+**IMPORTANT:**
+
+   Please modify your passwords in Dockerfile before building image!
+
 
 Versions
 -----------
