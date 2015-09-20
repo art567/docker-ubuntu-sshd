@@ -21,8 +21,9 @@ Instructions
 
 Versions
 -----------
-Some branches represents Ubuntu versions
-master is always represented by 12.04 LTS
+Some branches represents Ubuntu versions.
+
+Branch `master` is always represented by latest Ubuntu LTS
 
    For example:
    - 12.04 - Ubuntu 12.04.5 LTS
