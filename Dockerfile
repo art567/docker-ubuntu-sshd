@@ -8,7 +8,7 @@
 
 
 # Base system is the latest LTS version of Ubuntu.
-from   ubuntu
+from   ubuntu:14.04
 
 
 # Make sure we don't get notifications we can't answer during building.
@@ -16,6 +16,7 @@ env    DEBIAN_FRONTEND noninteractive
 
 
 # Prepare scripts and configs
+add    ./apt/sources.list /etc/apt/sources.list
 add    ./scripts/start /start
 
 
