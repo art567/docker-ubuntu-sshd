@@ -11,6 +11,8 @@ Instructions
  - Install Docker. Read http://docs.docker.io/en/latest/installation/ for instructions
  - Pull the repository
    `git clone https://github.com/art567/docker-ubuntu-sshd.git`
+ - Enter local directory
+   `cd docker-ubuntu-sshd`
  - Build the container
    `sudo docker build -t art567/ubuntu .`
  - Run the container
