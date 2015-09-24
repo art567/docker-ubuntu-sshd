@@ -16,7 +16,7 @@ Instructions
  - Build the container
    `sudo docker build -t art567/ubuntu .`
  - Run the container
-   `sudo docker run -d=true -p=2222:22 -v=/opt/data:/data art567/ubuntu /start`
+   `sudo docker run -d=true --name=ubuntu --restart=always -p=2222:22 -v=/opt/data:/data art567/ubuntu /start`
  - Your container will start and bind ssh to 2222 port.
  - Find IP Address using `ifconfig`
  - Connect to the SSH server
