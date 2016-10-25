@@ -20,9 +20,9 @@ add    ./scripts/start /start
 
 
 # Download and install everything from the repos.
-run    apt-get -q -y update; apt-get -q -y upgrade
-run    apt-get -q -y install sudo openssh-server
-run    mkdir /var/run/sshd
+run    apt-get -q -y update; apt-get -q -y upgrade && \
+       apt-get -q -y install sudo openssh-server && \
+       mkdir /var/run/sshd
 
 
 # Set root password
@@ -30,13 +30,13 @@ run    echo 'root:password' >> /root/passwdfile
 
 
 # Create user and it's password
-run    useradd -m -G sudo master
-run    echo 'master:password' >> /root/passwdfile
+run    useradd -m -G sudo master && \
+       echo 'master:password' >> /root/passwdfile
 
 
 # Apply root password
-run    chpasswd -c SHA512 < /root/passwdfile
-run    rm /root/passwdfile
+run    chpasswd -c SHA512 < /root/passwdfile && \
+       rm /root/passwdfile
 
 
 # Port 22 is used for ssh
